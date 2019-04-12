@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Fill</title>
+</head>
+<style>
+	.seat{
+		height: 10px;
+		width: 10px;
+		border:1px solid red;
+	}
+	.clickable{
+		border: 1px solid green;
+	}
+
+	.clickable:hover{
+		border:3px solid green;
+	}
+
+</style>
+<body>
+	<div class="wrapper">
+	{% for seat in seats %}
+		{% if seat['status'] == 0 %}	
+			<div class="seat clickable"></div>
+		{% else %}
+			<div class="seat"></div>
+		{% endif %}
+	{% endfor %}
+	</div>
+</body>
+</html>

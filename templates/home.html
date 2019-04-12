@@ -3,17 +3,163 @@
 <head>
 	<title>EMS!</title>
 </head>
+<!-- <link rel="stylesheet" type="text/css" href="static/homestyle.css"> -->
+<link href="https://fonts.googleapis.com/css?family=Audiowide|Monoton|Neucha|Quicksand|Roboto" rel="stylesheet">
+<style>
+	body{
+		font-family: 'Quicksand', sans-serif;
+		font-size: 110%;
+		font-weight: bold;
+		color: white;
+		background-image: url('static/Images/background.jpg');
+		background-size: cover;
+	}
+	.event-card{
+	border:1px solid #BB9BB0;
+	margin-top: 40px;
+	margin-right: 17px;
+	height: 300px;
+	width: 300px;
+	text-align: center;
+	border-radius:20px; 
+	background-color: #A288A6;
+	display: inline-block;
+	opacity: 0.8;
+	transition-duration: 0.3s;
+	}
+	.event-card:hover{
+		opacity: 1;
+		transform: scale(1.1);
+
+	}
+	p{
+		margin:11px;
+	}
+	.wrapper{
+		/*border: 1px solid black;*/
+		margin: 0 auto;
+		margin-top: -10px;
+		padding: 0px 20px;
+		height: 500px;
+		/*width: 100%;*/
+
+	}
+	.btn{
+		font-size: 26px;
+		background-color: #2D3142;
+		height: 35px;
+		width: 40%;
+		margin:0 auto;
+		margin-top: 10px;  
+		margin-right: 10px;
+		/*border-radius: 10px;*/
+		opacity: 1.5;
+		transition-duration: 0.3s;
+		display: inline-block;
+	}
+	.btn:hover{
+		transform: scale(1.1);
+		cursor: pointer;
+	}
+	
+</style>
 <body>
+	<center><p style="font-family: 'Monoton',cursive; font-size: 50px; font-weight: normal;position: sticky;margin-top: -100px;margin: 10px 550px; z-index: 1000;">EVENTS</p></center>
 	{% if events %}
 		{% for event in events %}
-			<h3>{{event[0]}}</h3>
-			<p>{{event[1]}}</p><br>
-			<p>{{event[2]}}</p><br>
-			<p>{{event[3]}}</p><br>
-			<p>{{event[4]}}</p><br>
-			<p>{{event[5]}}</p><br>
-			<p>{{event[6]}}</p><br>
-			<p>{{event[7]}}</p><br><br>
+		<div class="wrapper">
+			<div class = "event-card">
+				<!-- <h3>{{event[0]}}</h3> -->
+				<p>{{event[1]}}</p>
+				<p>{{event[2]}}</p>
+				<p>{{event[3]}}</p>
+				<p>{{event[4]}}</p>
+				<p>{{event[5]}}</p>
+				<p>{{event[6]}}</p>
+				<p>{{event[7]}}</p>
+				<div class="btn">Attend</div>
+				<div class="btn">Remove</div><br>
+			</div>
+
+			<div class = "event-card">
+				<!-- <h3>{{event[0]}}</h3> -->
+				<p>{{event[1]}}</p>
+				<p>{{event[2]}}</p>
+				<p>{{event[3]}}</p>
+				<p>{{event[4]}}</p>
+				<p>{{event[5]}}</p>
+				<p>{{event[6]}}</p>
+				<p>{{event[7]}}</p>
+				<div class="btn">Attend</div>
+				<div class="btn">Remove</div><br>
+			</div>
+
+			<div class = "event-card">
+				<!-- <h3>{{event[0]}}</h3> -->
+				<p>{{event[1]}}</p>
+				<p>{{event[2]}}</p>
+				<p>{{event[3]}}</p>
+				<p>{{event[4]}}</p>
+				<p>{{event[5]}}</p>
+				<p>{{event[6]}}</p>
+				<p>{{event[7]}}</p>
+				<div class="btn">Attend</div>
+				<div class="btn">Remove</div><br>
+			</div>
+
+			<div class = "event-card">
+				<!-- <h3>{{event[0]}}</h3> -->
+				<p>{{event[1]}}</p>
+				<p>{{event[2]}}</p>
+				<p>{{event[3]}}</p>
+				<p>{{event[4]}}</p>
+				<p>{{event[5]}}</p>
+				<p>{{event[6]}}</p>
+				<p>{{event[7]}}</p>
+				<div class="btn">Attend</div>
+				<div class="btn">Remove</div><br>
+			</div>
+
+			<div class = "event-card">
+				<!-- <h3>{{event[0]}}</h3> -->
+				<p>{{event[1]}}</p>
+				<p>{{event[2]}}</p>
+				<p>{{event[3]}}</p>
+				<p>{{event[4]}}</p>
+				<p>{{event[5]}}</p>
+				<p>{{event[6]}}</p>
+				<p>{{event[7]}}</p>
+				<div class="btn">Attend</div>
+				<div class="btn">Remove</div><br>
+			</div>
+
+			<div class = "event-card">
+				<!-- <h3>{{event[0]}}</h3> -->
+				<p>{{event[1]}}</p>
+				<p>{{event[2]}}</p>
+				<p>{{event[3]}}</p>
+				<p>{{event[4]}}</p>
+				<p>{{event[5]}}</p>
+				<p>{{event[6]}}</p>
+				<p>{{event[7]}}</p>
+				<div class="btn">Attend</div>
+				<div class="btn">Remove</div><br>
+			</div>
+
+			<div class = "event-card">
+				<!-- <h3>{{event[0]}}</h3> -->
+				<p>{{event[1]}}</p>
+				<p>{{event[2]}}</p>
+				<p>{{event[3]}}</p>
+				<p>{{event[4]}}</p>
+				<p>{{event[5]}}</p>
+				<p>{{event[6]}}</p>
+				<p>{{event[7]}}</p>
+				<div class="btn">Attend</div>
+				<div class="btn">Remove</div><br>
+			</div>
+
+			
 		{% endfor%}
 	{% else %}
 		<h1>No events sorry!</h1>
