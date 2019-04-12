@@ -131,7 +131,22 @@ def admin():
 		info = request.form["info"]
 		location = request.form["location"]
 		contact = request.form["contact"]
-		
+		with sqlite3.connect(db) as conn:
+			cur = conn.cursor()
+			cur.execute("INSERT INTO events VALUES(?,?,?,?,?,?,?,?)",[eventid,eventtitle,eventtype,eventdate,eventtime,info,location,contact])
+			cur.execute("INSERT INTO seats VALUES(?,?,?,?,?)",[eventid,"platinum",5000,"A1",0])
+			cur.execute("INSERT INTO seats VALUES(?,?,?,?,?)",[eventid,"platinum",5000,"A2",0])
+			cur.execute("INSERT INTO seats VALUES(?,?,?,?,?)",[eventid,"platinum",5000,"A3",0])
+			cur.execute("INSERT INTO seats VALUES(?,?,?,?,?)",[eventid,"platinum",5000,"A4",0])
+			cur.execute("INSERT INTO seats VALUES(?,?,?,?,?)",[eventid,"gold",3000,"B1",0])
+			cur.execute("INSERT INTO seats VALUES(?,?,?,?,?)",[eventid,"gold",3000,"B2",0])
+			cur.execute("INSERT INTO seats VALUES(?,?,?,?,?)",[eventid,"gold",3000,"B3",0])
+			cur.execute("INSERT INTO seats VALUES(?,?,?,?,?)",[eventid,"gold",3000,"B4",0])
+			cur.execute("INSERT INTO seats VALUES(?,?,?,?,?)",[eventid,"silver",1500,"C1",0])
+			cur.execute("INSERT INTO seats VALUES(?,?,?,?,?)",[eventid,"silver",1500,"C2",0])
+			cur.execute("INSERT INTO seats VALUES(?,?,?,?,?)",[eventid,"silver",1500,"C3",0])
+			cur.execute("INSERT INTO seats VALUES(?,?,?,?,?)",[eventid,"silver",1500,"C4",0])
+			conn.commit()
 	return render_template('admin.html')
 
 
