@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>EMS!</title>
+</head>
+<body>
+	{% if events %}
+		{% for event in events %}
+			<h3>{{event[0]}}</h3>
+			<p>{{event[1]}}</p><br>
+			<p>{{event[2]}}</p><br>
+			<p>{{event[3]}}</p><br>
+			<p>{{event[4]}}</p><br>
+			<p>{{event[5]}}</p><br>
+			<p>{{event[6]}}</p><br>
+			<p>{{event[7]}}</p><br><br>
+		{% endfor%}
+	{% else %}
+		<h1>No events sorry!</h1>
+	{% endif %}
+</body>
+</html>
