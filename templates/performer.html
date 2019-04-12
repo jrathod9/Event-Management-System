@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Performer!</title>
+</head>
+<link href="https://fonts.googleapis.com/css?family=Audiowide|Monoton|Neucha|Quicksand|Roboto" rel="stylesheet">
+<style>
+	body{
+		font-family: 'Quicksand',cursive;
+		background-image: url('static/Images/background.jpg');
+		background-size: cover;
+	}
+	.wrapper{
+		position: absolute;
+		margin-left: 39%;
+		display: inline-block;
+	}
+	.seat{
+		display: inline-block;
+		height: 60px;
+		width: 70px;
+		border:1px solid red;
+		text-align: center;
+		margin-top: 6px;
+		padding-top: 3%;
+		/*background-color: tomato;*/
+		opacity: 0.5;
+		color: black;
+	}
+	.clickable{
+		border: 1px solid green;
+		background-color: transparent;
+		opacity: 1;
+	}
+
+	.clickable:hover{
+		background-color: green;
+	}
+	.prices{
+		position: absolute;
+		right:-135%;
+		top: 20%;
+		transform: scale(1.5);
+	}
+	.formfield{
+		/*display: inline-block;*/
+		margin-top: 10px;
+		margin-left: 6%;
+	}
+</style>
+<body>
+<center><p style="font-family: 'Monoton',cursive; font-size: 50px; font-weight: normal;position: sticky;">PERFORMER</p></center>
+<!-- <div class="wrapper"> -->
+{% for ele in performer %}
+	<center><h1>{{ele[1]}}</h1></center>
+	<center><h2>{{ele[2]}}</h2></center>
+{% endfor %}
+<!-- </div> -->
+</body>
+</html>

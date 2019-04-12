@@ -46,7 +46,7 @@
 		font-size: 26px;
 		background-color: #2D3142;
 		height: 35px;
-		width: 40%;
+		width: 20%;
 		margin:0 auto;
 		margin-top: 10px;  
 		margin-right: 10px;
@@ -72,15 +72,17 @@
 	
 	<div class="formfield">
 		<form action = "{{url_for('admin')}}" method = "POST">
-			<label for="eventid">EVENT ID : </label><input type="number" name="eventid"><br><br>
-			<label for="seatno">EVENT TITLE:</label> <input type="text" name="eventtitle" placeholder="EVENT TITLE"><br><br>
-			<label for="eventtype">EVENT TYPE: </label><input type="text" name="eventtype" placeholder="EVENT TYPE"><br><br>
-			<label for="eventdate">EVENT DATE :</label><input type="date" name="eventdate"><br><br>
-			<label for="eventtime"> EVENT TIME : </label><input type="text" name="eventtime"><br><br>
-			<label for="info"> INFO : </label><input type="text" name="info" placeholder="INFO"><br><br>
-			<label for="location">LOCATION : </label><input type="text" name="location" placeholder="LOCATION"><br><br>
-			<label for="contact">CONTACT : </label><input type="text" name="contact" placeholder="CONTACT"><br><br>
-			<span><input type="submit" name="Submit"></span>
+			<label for="eventid">EVENT ID : </label><input type="number" name="eventid"><br>
+			<label for="seatno">EVENT TITLE:</label> <input type="text" name="eventtitle" placeholder="EVENT TITLE"><br>
+			<label for="eventtype">EVENT TYPE: </label><input type="text" name="eventtype" placeholder="EVENT TYPE"><br>
+			<label for="eventdate">EVENT DATE :</label><input type="date" name="eventdate"><br>
+			<label for="eventtime"> EVENT TIME : </label><input type="text" name="eventtime" placeholder="HH:MM:SS"><br>
+			<label for="info"> INFO : </label><input type="text" name="info" placeholder="INFO"><br>
+			<label for="location">LOCATION : </label><input type="text" name="location" placeholder="LOCATION"><br>
+			<label for="contact">CONTACT : </label><input type="text" name="contact" placeholder="CONTACT"><br>
+			<label for="performer">PERFORMER : </label><input type="text" name="performer" placeholder="PERFORMER"><br>
+			<label for="aboutperformer">ABOUT PERFORMER :</label><input type="text" name="aboutperformer" placeholder="ABOUT PERFORMER"><br>
+			<span><input type="submit" name="Submit" class="btn" value="ADD"></span>
 		</form>
 	</div>
 

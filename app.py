@@ -131,9 +131,12 @@ def admin():
 		info = request.form["info"]
 		location = request.form["location"]
 		contact = request.form["contact"]
+		performer = request.form["performer"]
+		aboutperformer = request.form["aboutperformer"]
 		with sqlite3.connect(db) as conn:
 			cur = conn.cursor()
 			cur.execute("INSERT INTO events VALUES(?,?,?,?,?,?,?,?)",[eventid,eventtitle,eventtype,eventdate,eventtime,info,location,contact])
+			cur.execute("INSERT INTO performers VALUES(?,?,?)",[eventid,performer,aboutperformer])
 			cur.execute("INSERT INTO seats VALUES(?,?,?,?,?)",[eventid,"platinum",5000,"A1",0])
 			cur.execute("INSERT INTO seats VALUES(?,?,?,?,?)",[eventid,"platinum",5000,"A2",0])
 			cur.execute("INSERT INTO seats VALUES(?,?,?,?,?)",[eventid,"platinum",5000,"A3",0])
@@ -149,6 +152,15 @@ def admin():
 			conn.commit()
 	return render_template('admin.html')
 
+@app.route('/performer',methods = ['GET','POST'])
+def performer():
+	if request.method == 'POST':
+		eventid = request.form["eventid"]
+		with sqlite3.connect(db) as conn:
+				cur = conn.cursor()
+				cur.execute("SELECT * FROM performers WHERE event_id = ?",[eventid])
+				performer = cur.fetchall()
+	return render_template('performer.html',performer = performer)
 
 if __name__ == '__main__':
     app.run(port=5000,debug = True)
