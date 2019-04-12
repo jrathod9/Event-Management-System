@@ -66,10 +66,12 @@
 <body>
 	<center><p style="font-family: 'Monoton',cursive; font-size: 50px; font-weight: normal;position: sticky;margin-top: -100px;margin: 10px 550px; z-index: 1000;">EVENTS</p></center>
 	{% if events %}
-		{% for event in events %}
 		<div class="wrapper">
+		{% for event in events %}		
 			<div class = "event-card">
 				<!-- <h3>{{event[0]}}</h3> -->
+				<form action="{{url_for('seats')}}" method="POST">
+				<input type="text" name="eventid" value="{{event[0]}}" style="display: none;">
 				<p>{{event[1]}}</p>
 				<p>{{event[2]}}</p>
 				<p>{{event[3]}}</p>
@@ -77,92 +79,31 @@
 				<p>{{event[5]}}</p>
 				<p>{{event[6]}}</p>
 				<p>{{event[7]}}</p>
-				<div class="btn">Attend</div>
-				<div class="btn">Remove</div><br>
-			</div>
-
-			<div class = "event-card">
-				<!-- <h3>{{event[0]}}</h3> -->
-				<p>{{event[1]}}</p>
-				<p>{{event[2]}}</p>
-				<p>{{event[3]}}</p>
-				<p>{{event[4]}}</p>
-				<p>{{event[5]}}</p>
-				<p>{{event[6]}}</p>
-				<p>{{event[7]}}</p>
-				<div class="btn">Attend</div>
-				<div class="btn">Remove</div><br>
-			</div>
-
-			<div class = "event-card">
-				<!-- <h3>{{event[0]}}</h3> -->
-				<p>{{event[1]}}</p>
-				<p>{{event[2]}}</p>
-				<p>{{event[3]}}</p>
-				<p>{{event[4]}}</p>
-				<p>{{event[5]}}</p>
-				<p>{{event[6]}}</p>
-				<p>{{event[7]}}</p>
-				<div class="btn">Attend</div>
-				<div class="btn">Remove</div><br>
-			</div>
-
-			<div class = "event-card">
-				<!-- <h3>{{event[0]}}</h3> -->
-				<p>{{event[1]}}</p>
-				<p>{{event[2]}}</p>
-				<p>{{event[3]}}</p>
-				<p>{{event[4]}}</p>
-				<p>{{event[5]}}</p>
-				<p>{{event[6]}}</p>
-				<p>{{event[7]}}</p>
-				<div class="btn">Attend</div>
-				<div class="btn">Remove</div><br>
-			</div>
-
-			<div class = "event-card">
-				<!-- <h3>{{event[0]}}</h3> -->
-				<p>{{event[1]}}</p>
-				<p>{{event[2]}}</p>
-				<p>{{event[3]}}</p>
-				<p>{{event[4]}}</p>
-				<p>{{event[5]}}</p>
-				<p>{{event[6]}}</p>
-				<p>{{event[7]}}</p>
-				<div class="btn">Attend</div>
-				<div class="btn">Remove</div><br>
-			</div>
-
-			<div class = "event-card">
-				<!-- <h3>{{event[0]}}</h3> -->
-				<p>{{event[1]}}</p>
-				<p>{{event[2]}}</p>
-				<p>{{event[3]}}</p>
-				<p>{{event[4]}}</p>
-				<p>{{event[5]}}</p>
-				<p>{{event[6]}}</p>
-				<p>{{event[7]}}</p>
-				<div class="btn">Attend</div>
-				<div class="btn">Remove</div><br>
-			</div>
-
-			<div class = "event-card">
-				<!-- <h3>{{event[0]}}</h3> -->
-				<p>{{event[1]}}</p>
-				<p>{{event[2]}}</p>
-				<p>{{event[3]}}</p>
-				<p>{{event[4]}}</p>
-				<p>{{event[5]}}</p>
-				<p>{{event[6]}}</p>
-				<p>{{event[7]}}</p>
-				<div class="btn">Attend</div>
-				<div class="btn">Remove</div><br>
-			</div>
-
-			
+				<!-- <div class="btn">Attend</div> -->
+				<!-- <div class="btn">Remove</div><br> -->
+				<input type="submit" name="Submit" value="Attend" class="btn">
+				</form>
+			</div>			
 		{% endfor%}
 	{% else %}
 		<h1>No events sorry!</h1>
 	{% endif %}
 </body>
+<script type="text/javascript">
+	// var list = document.getElementsByClassName('btn');
+	// var size = list.length
+	
+	// function loop(){
+	// 	for (var i = 0; i <= size-1; i++) {
+	// 	document.getElementsByClassName('btn')[i].addEventListener('click', function(){
+	// 		console.log(i);
+	// 	});
+
+	// console.log(list);
+	// document.getElementsByClassName('btn').addEventListener('click', function(){
+			// console.log("hi");
+	// });
+		// window.location.href = "{{url_for('seats',)}}"
+</script>
+
 </html>

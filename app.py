@@ -40,6 +40,7 @@ cur.execute('''CREATE TABLE IF NOT EXISTS performers (event_id integer NOT NULL,
 
 cur.execute('''CREATE TABLE IF NOT EXISTS seats ( event_id integer NOT NULL,
 				seat_type varchar(9) NOT NULL,
+				amount integer NOT NULL,
 				seat_no varchar(2) NOT NULL,
 				status integer NOT NULL DEFAULT 0
 			);''')
@@ -62,6 +63,51 @@ def home():
 		# check_tables()
 	return render_template('home.html',events = events)
 
+# @app.route('/book',methods = ['GET','POST'])
+# def bookseat():
+# 	if request.method == 'POST':
+# 		seatno = request.form["seatno"]
+# 		name = request.form["name"]
+# 		gender = request.form["gender"]
+# 		dob = request.form["dob"]
+# 		mobile = request.form["mobile"]
+
+@app.route('/seats',methods = ['GET','POST'])
+def seats():
+	if request.method == 'POST':
+		eventid = request.form["eventid"]
+		print(eventid)
+		with sqlite3.connect(db) as conn:
+			cur = conn.cursor()
+			cur.execute("SELECT * FROM seats,events WHERE events.event_id=? AND events.event_id = seats.event_id",[eventid])
+			seats = cur.fetchall()
+		return render_template('seats.html',seats = seats, eventid = eventid)
+
+@app.route('/bookseat',methods = ['GET','POST'])
+def bookseat():
+	if request.method == 'POST':
+		eventid = request.form["eventid"]
+		seatno = request.form["seatno"]
+
+		if(seatno[0]=='A'):
+			seattype = "platinum"
+		elif(seatno[0]=='B'):
+			seattype = "gold"
+		else:
+			seattype = "silver"
+
+		name = request.form["name"]
+		gender = request.form["gender"]
+		dob = request.form["dob"]
+		mobile = request.form["mobile"]
+		with sqlite3.connect(db) as conn:
+			cur = conn.cursor()
+			cur.execute("SELECT status FROM seats WHERE seat_no=? AND event_id=?",[seatno,eventid])
+			state = cur.fetchall()
+			if state[0][0]==0:
+				cur.execute("INSERT INTO guests VALUES (?,?,?,?,?,?,?)",[eventid,name,gender,dob,mobile,seattype,seatno])
+				cur.execute("UPDATE seats SET status = ? WHERE seat_no = ? AND event_id =?",[1,seatno,eventid])
+				conn.commit()
 
 if __name__ == '__main__':
     app.run(port=5000,debug = True)
