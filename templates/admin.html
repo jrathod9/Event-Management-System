@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Admin</title>
+</head>
+<style>
+	body{
+		font-family: 'Quicksand', sans-serif;
+		font-size: 110%;
+		font-weight: bold;
+		color: white;
+		background-image: url('static/Images/background.jpg');
+		background-size: cover;
+	}
+	.event-card{
+	border:1px solid #BB9BB0;
+	margin-top: 40px;
+	margin-right: 17px;
+	height: 300px;
+	width: 300px;
+	text-align: center;
+	border-radius:20px; 
+	background-color: #A288A6;
+	display: inline-block;
+	opacity: 0.8;
+	transition-duration: 0.3s;
+	}
+	.event-card:hover{
+		opacity: 1;
+		transform: scale(1.1);
+
+	}
+	p{
+		margin:11px;
+	}
+	.wrapper{
+		/*border: 1px solid black;*/
+		margin: 0 auto;
+		margin-top: -10px;
+		padding: 0px 20px;
+		height: 500px;
+		/*width: 100%;*/
+
+	}
+	.btn{
+		font-size: 26px;
+		background-color: #2D3142;
+		height: 35px;
+		width: 40%;
+		margin:0 auto;
+		margin-top: 10px;  
+		margin-right: 10px;
+		/*border-radius: 10px;*/
+		opacity: 1.5;
+		transition-duration: 0.3s;
+		display: inline-block;
+	}
+	.btn:hover{
+		transform: scale(1.1);
+		cursor: pointer;
+	}
+	.formfield{
+		text-align: center;
+	}
+	label{
+		color:black;
+	}
+</style>
+<link href="https://fonts.googleapis.com/css?family=Audiowide|Monoton|Neucha|Quicksand|Roboto" rel="stylesheet">
+<body>
+		<center><p style="font-family: 'Monoton',cursive; font-size: 50px; font-weight: normal;position: sticky;margin-top: -100px;margin: 10px 550px; z-index: 1000;">ADD EVENT</p></center>
+	
+	<div class="formfield">
+		<form action = "{{url_for('admin')}}" method = "POST">
+			<label for="eventid">EVENT ID : </label><input type="number" name="eventid"><br><br>
+			<label for="seatno">EVENT TITLE:</label> <input type="text" name="eventtitle" placeholder="EVENT TITLE"><br><br>
+			<label for="eventtype">EVENT TYPE: </label><input type="text" name="eventtype" placeholder="EVENT TYPE"><br><br>
+			<label for="eventdate">EVENT DATE :</label><input type="date" name="eventdate"><br><br>
+			<label for="eventtime"> EVENT TIME : </label><input type="text" name="eventtime"><br><br>
+			<label for="info"> INFO : </label><input type="text" name="info" placeholder="INFO"><br><br>
+			<label for="location">LOCATION : </label><input type="text" name="location" placeholder="LOCATION"><br><br>
+			<label for="contact">CONTACT : </label><input type="text" name="contact" placeholder="CONTACT"><br><br>
+			<span><input type="submit" name="Submit"></span>
+		</form>
+	</div>
+
+</body>
+</html>

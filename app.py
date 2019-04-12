@@ -1,5 +1,6 @@
 from flask import Flask, flash, redirect, url_for, render_template, request, session, abort
 # from forms import RegistrationForm, LoginForm, BookForm 
+import datetime
 import os
 import sqlite3
 db = 'Database/db.sqlite3'
@@ -58,8 +59,13 @@ def check_tables():		#PRINTS ALL TABLES
 def home():
 	with sqlite3.connect(db) as conn:
 		cur = conn.cursor()
-		cur.execute("SELECT * FROM events")
+		cur.execute("SELECT * FROM events ORDER BY event_data")
 		events = cur.fetchall()
+		# cur.execute("SELECT event_data FROM events")
+		# eventdate = cur.fetchall()
+		# status = 1
+		# if str(eventdate) > str(datetime.datetime.now().date()):
+		# 	status = 0
 		# check_tables()
 	return render_template('home.html',events = events)
 
@@ -79,8 +85,9 @@ def seats():
 		print(eventid)
 		with sqlite3.connect(db) as conn:
 			cur = conn.cursor()
-			cur.execute("SELECT * FROM seats,events WHERE events.event_id=? AND events.event_id = seats.event_id",[eventid])
+			cur.execute("SELECT * FROM seats,events WHERE events.event_id=? AND events.event_id = seats.event_id ORDER BY seats.amount DESC",[eventid])
 			seats = cur.fetchall()
+			
 		return render_template('seats.html',seats = seats, eventid = eventid)
 
 @app.route('/bookseat',methods = ['GET','POST'])
@@ -108,6 +115,25 @@ def bookseat():
 				cur.execute("INSERT INTO guests VALUES (?,?,?,?,?,?,?)",[eventid,name,gender,dob,mobile,seattype,seatno])
 				cur.execute("UPDATE seats SET status = ? WHERE seat_no = ? AND event_id =?",[1,seatno,eventid])
 				conn.commit()
+				errorstatus = 0
+			else:
+				errorstatus = 1
+		return render_template('bookingdone.html',errorstatus = errorstatus)
+
+@app.route('/admin',methods=['GET','POST'])
+def admin():
+	if request.method == 'POST':
+		eventid = request.form["eventid"]
+		eventtitle = request.form["eventtitle"]
+		eventtype = request.form["eventtype"]
+		eventdate = request.form["eventdate"]
+		eventtime = request.form["eventtime"]
+		info = request.form["info"]
+		location = request.form["location"]
+		contact = request.form["contact"]
+		
+	return render_template('admin.html')
+
 
 if __name__ == '__main__':
     app.run(port=5000,debug = True)

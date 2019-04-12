@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Booking Status</title>
+</head>
+<style>
+	body{
+		font-family: 'Quicksand', sans-serif;
+		font-size: 110%;
+		font-weight: bold;
+		color: white;
+		background-image: url('static/Images/background.jpg');
+		background-size: cover;
+	}
+	.event-card{
+	border:1px solid #BB9BB0;
+	margin-top: 40px;
+	margin-right: 17px;
+	height: 300px;
+	width: 300px;
+	text-align: center;
+	border-radius:20px; 
+	background-color: #A288A6;
+	display: inline-block;
+	opacity: 0.8;
+	transition-duration: 0.3s;
+	}
+	.event-card:hover{
+		opacity: 1;
+		transform: scale(1.1);
+
+	}
+	p{
+		margin:11px;
+	}
+	.wrapper{
+		/*border: 1px solid black;*/
+		margin: 0 auto;
+		margin-top: -10px;
+		padding: 0px 20px;
+		height: 500px;
+		/*width: 100%;*/
+
+	}
+	.btn{
+		font-size: 26px;
+		background-color: #2D3142;
+		height: 35px;
+		width: 40%;
+		margin:0 auto;
+		margin-top: 10px;  
+		margin-right: 10px;
+		/*border-radius: 10px;*/
+		opacity: 1.5;
+		transition-duration: 0.3s;
+		display: inline-block;
+	}
+	.btn:hover{
+		transform: scale(1.1);
+		cursor: pointer;
+	}
+	
+</style>
+<link href="https://fonts.googleapis.com/css?family=Audiowide|Monoton|Neucha|Quicksand|Roboto" rel="stylesheet">
+<body>
+
+{% if errorstatus %}
+	<h1>Could not book your ticket, the seat is already occupied!</h1>
+{% else %}
+	<h1>Booking success!</h1>
+{% endif %}
+</body>
+</html>
