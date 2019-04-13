@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>EMS!</title>
+	<title>Search Results</title>
 </head>
-<!-- <link rel="stylesheet" type="text/css" href="static/homestyle.css"> -->
 <link href="https://fonts.googleapis.com/css?family=Audiowide|Monoton|Neucha|Quicksand|Roboto" rel="stylesheet">
 <style>
 	body{
@@ -44,19 +43,6 @@
 		/*width: 100%;*/
 
 	}
-	.btn-small{
-		font-size: 16px;
-		background-color: #2D3142;
-		height: 25px;
-		width: 7%;
-		margin:0 auto;
-		margin-top: 10px;  
-		margin-left: 10px;
-		/*border-radius: 10px;*/
-		opacity: 1;
-		transition-duration: 0.3s;
-		display: inline-block;
-	}
 	.btn{
 		font-size: 26px;
 		background-color: #2D3142;
@@ -70,10 +56,6 @@
 		transition-duration: 0.3s;
 		display: inline-block;
 	}
-	.btn-small:hover{
-		transform: scale(1.1);
-		cursor: pointer;
-	}
 	.btn:hover{
 		transform: scale(1.1);
 		cursor: pointer;
@@ -81,17 +63,9 @@
 	
 </style>
 <body>
-	<center><p style="font-family: 'Monoton',cursive; font-size: 50px; font-weight: normal;position: sticky;margin-top: -100px;margin: 10px 550px; z-index: 1000;">EVENTS</p></center>
+<center><p style="font-family: 'Monoton',cursive; font-size: 50px; font-weight: normal;">EVENTS</p></center>
 	{% if events %}
 		<div class="wrapper">
-			<form action="{{url_for('search')}}" method="POST" style="text-align: center;">
-				<label for="searchbyname">SEARCH : </label><input type="text" name="searchbyname" placeholder="EVENT NAME">
-				<span> OR </span>
-				<input type="date" name="searchbydate">
-				<span> OR </span>
-				<input type="text" name="searchbytype" placeholder="EVENT TYPE">
-				<input type="submit" name="submit" value = "Search" class="btn-small">
-			</form>
 		{% for event in events %}		
 			<div class = "event-card">
 				<!-- <h3>{{event[0]}}</h3> -->
@@ -117,21 +91,4 @@
 		<h1>No events sorry!</h1>
 	{% endif %}
 </body>
-<script type="text/javascript">
-	// var list = document.getElementsByClassName('btn');
-	// var size = list.length
-	
-	// function loop(){
-	// 	for (var i = 0; i <= size-1; i++) {
-	// 	document.getElementsByClassName('btn')[i].addEventListener('click', function(){
-	// 		console.log(i);
-	// 	});
-
-	// console.log(list);
-	// document.getElementsByClassName('btn').addEventListener('click', function(){
-			// console.log("hi");
-	// });
-		// window.location.href = "{{url_for('seats',)}}"
-</script>
-
 </html>
