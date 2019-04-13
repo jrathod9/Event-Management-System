@@ -162,5 +162,17 @@ def performer():
 				performer = cur.fetchall()
 	return render_template('performer.html',performer = performer)
 
+@app.route('/search',methods=['GET','POST'])
+def search():
+	if request.method == 'POST':
+		eventtitle = request.form["searchbyname"]
+		eventdate = request.form["searchbydate"]
+		eventtype = request.form["searchbytype"]
+		with sqlite3.connect(db) as conn:
+			cur = conn.cursor()
+			cur.execute("SELECT * FROM events WHERE event_title = ? OR event_data = ? OR event_type = ? ORDER BY event_data",[eventtitle,eventdate,eventtype])
+			results = cur.fetchall()
+	return render_template('search.html',results = results)
+
 if __name__ == '__main__':
     app.run(port=5000,debug = True)

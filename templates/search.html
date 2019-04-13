@@ -63,10 +63,10 @@
 	
 </style>
 <body>
-<center><p style="font-family: 'Monoton',cursive; font-size: 50px; font-weight: normal;">EVENTS</p></center>
-	{% if events %}
+<center><p style="font-family: 'Monoton',cursive; font-size: 50px; font-weight: normal;">SEARCH RESULTS</p></center>
+	{% if results %}
 		<div class="wrapper">
-		{% for event in events %}		
+		{% for event in results %}		
 			<div class = "event-card">
 				<!-- <h3>{{event[0]}}</h3> -->
 				<form action="{{url_for('seats')}}" method="POST">
