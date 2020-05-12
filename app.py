@@ -7,7 +7,7 @@ db = 'Database/db.sqlite3'
 #SAMPLE DATABASE
 conn = sqlite3.connect(db)
 app = Flask(__name__)
-app.secret_key= '04c816ee38ea4ee1843c22a6e67d8406'
+app.secret_key= ''
 
 # import secrets in python3 
 # secrets.token_hex(16)
